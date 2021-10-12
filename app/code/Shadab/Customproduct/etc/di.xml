@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Shadab\Customproduct\Api\ProductsRepositoryInterface" type="Shadab\Customproduct\Model\ProductsRepository"/>
+	<preference for="Shadab\Customproduct\Api\Data\ProductsInterface" type="Shadab\Customproduct\Model\Data\Products"/>
+	<preference for="Shadab\Customproduct\Api\Data\ProductsSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Shadab\Customproduct\Model\ResourceModel\Products\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">customproducts</argument>
+			<argument name="resourceModel" xsi:type="string">Shadab\Customproduct\Model\ResourceModel\Products\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="shadab_customproduct_products_listing_data_source" xsi:type="string">Shadab\Customproduct\Model\ResourceModel\Products\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

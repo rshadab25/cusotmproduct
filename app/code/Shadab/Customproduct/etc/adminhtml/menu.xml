@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Shadab::Customproduct" title="Shadab" module="Shadab_Customproduct" sortOrder="90" resource="Magento_Backend::content"/>
+		<add id="Shadab_Customproduct::productss" title="Products" module="Shadab_Customproduct" sortOrder="10" resource="Magento_Backend::content" parent="Shadab::Customproduct" action="shadab_customproduct/products/index"/>
+	</menu>
+</config>

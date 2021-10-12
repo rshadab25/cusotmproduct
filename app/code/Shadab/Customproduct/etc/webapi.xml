@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/customproduct/products/search" method="GET">
+		<service class="Shadab\Customproduct\Api\ProductsRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Shadab_Customproduct::products"/>
+		</resources>
+	</route>
+	<route url="/V1/customproduct/products/:entityId" method="GET">
+		<service class="Shadab\Customproduct\Api\ProductsRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Shadab_Customproduct::products"/>
+		</resources>
+	</route>
+	<route url="/V1/customproduct/products/:entityId" method="PUT">
+		<service class="Shadab\Customproduct\Api\ProductsRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Shadab_Customproduct::save"/>
+		</resources>
+	</route>
+	<route url="/V1/customproduct/products/:entityId" method="DELETE">
+		<service class="Shadab\Customproduct\Api\ProductsRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Shadab_Customproduct::delete"/>
+		</resources>
+	</route>
+</routes>

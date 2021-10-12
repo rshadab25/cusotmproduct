@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">shadab_customproduct_products_form.products_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="Shadab\Customproduct\Block\Adminhtml\Products\Edit\BackButton"/>
+			<button name="delete" class="Shadab\Customproduct\Block\Adminhtml\Products\Edit\DeleteButton"/>
+			<button name="save" class="Shadab\Customproduct\Block\Adminhtml\Products\Edit\SaveButton"/>
+			<button name="save_and_continue" class="Shadab\Customproduct\Block\Adminhtml\Products\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>shadab_customproduct_products_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>shadab_customproduct_products_form.products_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="products_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="products_form_data_source" class="Shadab\Customproduct\Model\Products\DataProvider">
+			<settings>
+				<requestFieldName>entity_id</requestFieldName>
+				<primaryFieldName>entity_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="sku" formElement="input" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">products</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">SKU</label>
+				<dataScope>sku</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="vendor_number" formElement="input" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">products</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Vendor Number</label>
+				<dataScope>vendor_number</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="vendor_note" formElement="textarea" sortOrder="30">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">products</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Vendor Note</label>
+				<dataScope>vendor_note</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+</form>
