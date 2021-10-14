@@ -6,10 +6,12 @@
 declare(strict_types=1);
 
 namespace Shadab\Customproduct\Controller\Adminhtml\Products;
+
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
+use Shadab\Customproduct\Controller\Adminhtml\Products as Customproducts;
 
-class NewAction extends \Shadab\Customproduct\Controller\Adminhtml\Products implements HttpGetActionInterface,HttpPostActionInterface
+class NewAction extends Customproducts implements HttpGetActionInterface, HttpPostActionInterface
 {
     const ADMIN_RESOURCE = 'Shadab_Customproduct::products';
     protected $resultPageFactory;

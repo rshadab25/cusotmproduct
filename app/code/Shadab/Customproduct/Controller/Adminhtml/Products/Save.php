@@ -10,7 +10,8 @@ namespace Shadab\Customproduct\Controller\Adminhtml\Products;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
-class Save extends \Magento\Backend\App\Action implements HttpGetActionInterface,HttpPostActionInterface
+
+class Save extends \Magento\Backend\App\Action implements HttpGetActionInterface, HttpPostActionInterface
 {
 
     const ADMIN_RESOURCE = 'Shadab_Customproduct::save';

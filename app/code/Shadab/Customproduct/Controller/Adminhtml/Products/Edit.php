@@ -6,7 +6,9 @@
 declare(strict_types=1);
 
 namespace Shadab\Customproduct\Controller\Adminhtml\Products;
+
 use Magento\Framework\App\Action\HttpGetActionInterface;
+
 class Edit extends \Shadab\Customproduct\Controller\Adminhtml\Products implements HttpGetActionInterface
 {
     const ADMIN_RESOURCE = 'Shadab_Customproduct::save';

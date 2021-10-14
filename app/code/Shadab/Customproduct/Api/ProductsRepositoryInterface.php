@@ -29,7 +29,7 @@ interface ProductsRepositoryInterface
      * @return \Shadab\Customproduct\Api\Data\ProductsInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function get($entityId, $storeId= null);
+    public function get($entityId, $storeId = null);
 
     /**
      * Retrieve products matching the specified criteria.

@@ -120,9 +120,9 @@ class ProductsRepository implements ProductsRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function  get($entityId, $storeId= null)
+    public function get($entityId, $storeId = null)
     {
-        if($storeId>0){
+        if ($storeId>0) {
             $products = $this->productsFactory->create()->getCollection();
             $newcollection = $products->getSelect()
                 ->joinRight(
@@ -135,26 +135,26 @@ class ProductsRepository implements ProductsRepositoryInterface
                 ->where("customproducts_store.store_id=$storeId and product_id=$entityId");
                 $connection = $this->_resource->getConnection();
                 $queryResult = $connection->fetchRow($newcollection);
-                if (isset($queryResult) && is_array($queryResult) && count($queryResult)>0) {
-                    $arrayResult=[];
-                    $arrayResult['entity_id']=$queryResult['product_id'];
-                    $arrayResult['sku']=$queryResult['sku'];
-                    $arrayResult['vendor_number']=$queryResult['vendor_number'];
-                    $arrayResult['vendor_note']=$queryResult['vendor_note'];
-                    $arrayResult['created_at']=$queryResult['created_at'];
-                    $arrayResult['updated_at']=$queryResult['updated_at'];
-                    $products = $this->productsFactory->create();
-                    $products->setData($arrayResult);
-                    return $products->getDataModel();
-                } else {
-                    $products = $this->productsFactory->create();
-                    $this->resource->load($products, $entityId);
-                    if (!$products->getId()) {
-                        throw new NoSuchEntityException(__('product with id "%1" does not exist.', $entityId));
-                    }
-                    return $products->getDataModel();
-                }  
-        }else{
+            if (isset($queryResult) && is_array($queryResult) && count($queryResult)>0) {
+                $arrayResult=[];
+                $arrayResult['entity_id']=$queryResult['product_id'];
+                $arrayResult['sku']=$queryResult['sku'];
+                $arrayResult['vendor_number']=$queryResult['vendor_number'];
+                $arrayResult['vendor_note']=$queryResult['vendor_note'];
+                $arrayResult['created_at']=$queryResult['created_at'];
+                $arrayResult['updated_at']=$queryResult['updated_at'];
+                $products = $this->productsFactory->create();
+                $products->setData($arrayResult);
+                return $products->getDataModel();
+            } else {
+                $products = $this->productsFactory->create();
+                $this->resource->load($products, $entityId);
+                if (!$products->getId()) {
+                    throw new NoSuchEntityException(__('product with id "%1" does not exist.', $entityId));
+                }
+                return $products->getDataModel();
+            }
+        } else {
             $products = $this->productsFactory->create();
             $this->resource->load($products, $entityId);
             if (!$products->getId()) {
