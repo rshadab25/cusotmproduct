@@ -33,6 +33,7 @@ Custom products module
 	- customproducts
 
 ## Web Services (API)
+
 	/V1/customproduct/products/:entityId/:storeId
 
 	Eg. http://localmagento.com/rest/V1/customproduct/products/1/0
@@ -57,6 +58,16 @@ Custom products module
 	 Eg. http://localmagento.com/rest/V1/customproduct/search?searchCriteria[filter_groups][0][filters][0][field]=vendor_number&searchCriteria[filter_groups][0][filters][0][value]=bbbb& searchCriteria[filter_groups][0][filters][0][condition_type]=like
 
 	GET Method
+	
+	Note: Before accessing API please generate token to use API
+	http://localmagento.com/rest/V1/integration/admin/token
+	Payload:
+	{
+		"username":"username",
+		"password":"password"
+	}
+	POST Method
+
 	- 
 
 
