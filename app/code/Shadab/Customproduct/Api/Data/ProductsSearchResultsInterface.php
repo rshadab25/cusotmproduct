@@ -23,4 +23,3 @@ interface ProductsSearchResultsInterface extends \Magento\Framework\Api\SearchRe
      */
     public function setItems(array $items);
 }
-

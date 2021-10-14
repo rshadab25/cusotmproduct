@@ -10,7 +10,6 @@
 	<settings>
 		<buttons>
 			<button name="back" class="Shadab\Customproduct\Block\Adminhtml\Products\Edit\BackButton"/>
-			<button name="delete" class="Shadab\Customproduct\Block\Adminhtml\Products\Edit\DeleteButton"/>
 			<button name="save" class="Shadab\Customproduct\Block\Adminhtml\Products\Edit\SaveButton"/>
 			<button name="save_and_continue" class="Shadab\Customproduct\Block\Adminhtml\Products\Edit\SaveAndContinueButton"/>
 		</buttons>

@@ -6,10 +6,12 @@
 declare(strict_types=1);
 
 namespace Shadab\Customproduct\Controller\Adminhtml\Products;
-
-class Index extends \Magento\Backend\App\Action
+use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Framework\App\Action\HttpPostActionInterface;
+class Index extends \Magento\Backend\App\Action implements HttpGetActionInterface,HttpPostActionInterface
 {
 
+    const ADMIN_RESOURCE = 'Shadab_Customproduct::products';
     protected $resultPageFactory;
 
     /**
@@ -35,7 +37,7 @@ class Index extends \Magento\Backend\App\Action
     {
         $resultPage = $this->resultPageFactory->create();
             $resultPage->getConfig()->getTitle()->prepend(__("Products"));
+            $resultPage->setActiveMenu('Shadab_Customproduct::products');
             return $resultPage;
     }
 }
-

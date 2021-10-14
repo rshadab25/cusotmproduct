@@ -20,4 +20,3 @@ class Products extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $this->_init('customproducts', 'entity_id');
     }
 }
-

@@ -4,5 +4,5 @@
  */
 ?>
 <div class="product-disclaimer-content">
-	<?= $block->getDisclaimer() ?>
+    <?= $block->escapeHtmlAttr($block->getDisclaimer()) ?>
 </div>

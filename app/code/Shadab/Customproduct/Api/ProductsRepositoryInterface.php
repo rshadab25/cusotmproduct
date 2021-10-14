@@ -25,10 +25,11 @@ interface ProductsRepositoryInterface
     /**
      * Retrieve products
      * @param string $entityId
+     * @param string $storeId (optional) storeId
      * @return \Shadab\Customproduct\Api\Data\ProductsInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function get($entityId);
+    public function get($entityId, $storeId= null);
 
     /**
      * Retrieve products matching the specified criteria.
@@ -59,4 +60,3 @@ interface ProductsRepositoryInterface
      */
     public function deleteById($entityId);
 }
-

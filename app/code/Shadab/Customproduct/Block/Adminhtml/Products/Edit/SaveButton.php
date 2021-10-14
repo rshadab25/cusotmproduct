@@ -17,15 +17,38 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
      */
     public function getButtonData()
     {
+        if (!$this->isAllowed()) {
+            return [];
+        }
+        if (!$this->context->getRequest()->getParam('store')) {
+            $store_id = 0;
+        } else {
+            $store_id = $this->context->getRequest()->getParam('store');
+        }
         return [
             'label' => __('Save Products'),
             'class' => 'save primary',
             'data_attribute' => [
-                'mage-init' => ['button' => ['event' => 'save']],
-                'form-role' => 'save',
+                'mage-init' => [
+                    'buttonAdapter' => [
+                        'actions' => [
+                            [
+                                'targetName' => 'shadab_customproduct_products_form.shadab_customproduct_products_form',
+                                'actionName' => 'save',
+                                'params' => [
+                                    true,
+                                    ['store'=>$store_id]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ],
             'sort_order' => 90,
         ];
     }
+    public function isAllowed()
+    {
+        return $this->authorization->isAllowed('Shadab_Customproduct::delete');
+    }
 }
-

@@ -10,7 +10,7 @@ namespace Shadab\Customproduct\Controller\Adminhtml;
 abstract class Products extends \Magento\Backend\App\Action
 {
 
-    const ADMIN_RESOURCE = 'Shadab::Customproduct';
+    const ADMIN_RESOURCE = 'Shadab_Customproduct::products';
     protected $_coreRegistry;
 
     /**
@@ -33,10 +33,9 @@ abstract class Products extends \Magento\Backend\App\Action
      */
     public function initPage($resultPage)
     {
-        $resultPage->setActiveMenu(self::ADMIN_RESOURCE)
+        $resultPage->setActiveMenu('Shadab_Customproduct::products')
             ->addBreadcrumb(__('Shadab'), __('Shadab'))
             ->addBreadcrumb(__('Products'), __('Products'));
         return $resultPage;
     }
 }
-

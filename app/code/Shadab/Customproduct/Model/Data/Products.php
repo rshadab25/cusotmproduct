@@ -146,4 +146,3 @@ class Products extends \Magento\Framework\Api\AbstractExtensibleObject implement
         return $this->setData(self::UPDATED_AT, $updatedAt);
     }
 }
-

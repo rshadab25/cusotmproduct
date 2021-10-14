@@ -6,7 +6,7 @@
 			<resource ref="Shadab_Customproduct::products"/>
 		</resources>
 	</route>
-	<route url="/V1/customproduct/products/:entityId" method="GET">
+	<route url="/V1/customproduct/products/:entityId/:storeId" method="GET">
 		<service class="Shadab\Customproduct\Api\ProductsRepositoryInterface" method="get"/>
 		<resources>
 			<resource ref="Shadab_Customproduct::products"/>

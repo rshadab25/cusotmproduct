@@ -110,4 +110,3 @@ interface ProductsInterface extends \Magento\Framework\Api\ExtensibleDataInterfa
      */
     public function setUpdatedAt($updatedAt);
 }
-

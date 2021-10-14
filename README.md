@@ -33,9 +33,9 @@ Custom products module
 	- customproducts
 
 ## Web Services (API)
-	/V1/customproduct/products/:entityId
+	/V1/customproduct/products/:entityId/:storeId
 
-	Eg. http://localmagento.com/rest/V1/customproduct/products/1
+	Eg. http://localmagento.com/rest/V1/customproduct/products/1/0
 	 GET Method
 	 -------------------------------------------------------
 	/V1/customproduct/products/:entityId

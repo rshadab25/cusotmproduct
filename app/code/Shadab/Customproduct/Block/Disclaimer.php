@@ -21,7 +21,7 @@ class Disclaimer extends \Magento\Framework\View\Element\Template
     /**
      * Disclaimer config path
      */
-   const XML_PATH_DISCLAIMER_CONFIG = 'settings/general/disclaimer';
+    const XML_PATH_DISCLAIMER_CONFIG = 'settings/general/disclaimer';
 
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
@@ -33,9 +33,9 @@ class Disclaimer extends \Magento\Framework\View\Element\Template
     }
     /**
      * @param string $value
-     * @return string 
+     * @return string
      */
-    public function getConfigValue($value = '') 
+    public function getConfigValue($value = '')
     {
         return $this->scopeConfig->getValue($value, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }

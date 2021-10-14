@@ -19,7 +19,6 @@ class Products extends \Magento\Framework\Model\AbstractModel
     protected $_eventPrefix = 'customproducts';
     protected $productsDataFactory;
 
-
     /**
      * @param \Magento\Framework\Model\Context $context
      * @param \Magento\Framework\Registry $registry
@@ -61,4 +60,3 @@ class Products extends \Magento\Framework\Model\AbstractModel
         return $productsDataObject;
     }
 }
-

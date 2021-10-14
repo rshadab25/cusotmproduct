@@ -20,6 +20,7 @@ abstract class GenericButton
     public function __construct(Context $context)
     {
         $this->context = $context;
+        $this->authorization = $context->getAuthorization();
     }
 
     /**
@@ -44,4 +45,3 @@ abstract class GenericButton
         return $this->context->getUrlBuilder()->getUrl($route, $params);
     }
 }
-

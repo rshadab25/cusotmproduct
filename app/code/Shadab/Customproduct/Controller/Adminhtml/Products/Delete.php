@@ -6,9 +6,27 @@
 declare(strict_types=1);
 
 namespace Shadab\Customproduct\Controller\Adminhtml\Products;
-
-class Delete extends \Shadab\Customproduct\Controller\Adminhtml\Products
+use Magento\Framework\App\Action\HttpGetActionInterface;
+class Delete extends \Shadab\Customproduct\Controller\Adminhtml\Products implements HttpGetActionInterface
 {
+
+    const ADMIN_RESOURCE = 'Shadab_Customproduct::delete';
+    /**
+     * Constructor
+     *
+     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Shadab\Customproduct\Model\ProductsFactory $prodFactory
+     */
+    public function __construct(
+        \Magento\Backend\App\Action\Context $context,
+        \Shadab\Customproduct\Model\ProductsFactory $prodFactory,
+        \Magento\Framework\App\ResourceConnection $resource,
+        \Magento\Framework\Registry $coreRegistry
+    ) {
+        $this->prodFactory = $prodFactory;
+        $this->_resource = $resource;
+        parent::__construct($context, $coreRegistry);
+    }
 
     /**
      * Delete action
@@ -24,9 +42,15 @@ class Delete extends \Shadab\Customproduct\Controller\Adminhtml\Products
         if ($id) {
             try {
                 // init model and delete
-                $model = $this->_objectManager->create(\Shadab\Customproduct\Model\Products::class);
+                $model = $this->prodFactory->create();
                 $model->load($id);
                 $model->delete();
+                $connection = $this->_resource->getConnection();
+                $tableName =  $this->_resource->getTableName('customproducts_store');
+                $whereConditions = [
+                    $connection->quoteInto('product_id = ?', $id),
+                ];
+                $connection->delete($tableName, $whereConditions);
                 // display success message
                 $this->messageManager->addSuccessMessage(__('You deleted the Products.'));
                 // go to grid
@@ -44,4 +68,3 @@ class Delete extends \Shadab\Customproduct\Controller\Adminhtml\Products
         return $resultRedirect->setPath('*/*/');
     }
 }
-
